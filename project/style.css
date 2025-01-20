@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: lightgray;
+}
+
+header {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: white;
+}
+
+header h1 {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.githubBTN {
+    height: 40px;
+}
