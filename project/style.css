@@ -33,7 +33,7 @@ header h1 {
     align-items: center;
     justify-content: space-around;
     padding: 8px;
-    background-color: darkslategray;
+    background-color: lightgray;
 }
 
 .Section_Stats div {
@@ -78,7 +78,7 @@ header h1 {
 
 /* -----> Colors Section <----- */ 
 .Section_Colors {
-    background-color: darkslategray;
+    background-color: lightgray;
     width: 100vw;
     height: 50vh;
     display: flex;
@@ -93,10 +93,12 @@ header h1 {
 }
 
 .circle {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     background-color: red;
     border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
 }
 
 /* -----> Footer <----- */
