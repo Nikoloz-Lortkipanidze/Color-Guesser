@@ -13,7 +13,7 @@ header {
     display: flex;
     align-content: center;
     justify-content: space-between;
-    padding: 8px;
+    padding: 4px; 
     background-color: white;
 }
 
@@ -33,7 +33,7 @@ header h1 {
     align-items: center;
     justify-content: space-around;
     padding: 8px;
-    background-color: lightblue;
+    background-color: darkslategray;
 }
 
 .Section_Stats div {
@@ -55,3 +55,60 @@ header h1 {
     cursor: pointer;
 }
 
+/* -----> Guess The Color Section <----- */
+.Section_GuessTheColor {
+    width: 100vw;
+    height: 20vh;
+    /* height: 250px; */
+    background-color: red;
+    position: relative;
+}
+
+.Section_GuessTheColor h2 {
+    font-family: "Shrikhand", serif;
+    font-weight: 400;
+    font-style: normal;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 36px;
+}
+
+/* -----> Colors Section <----- */ 
+.Section_Colors {
+    background-color: darkslategray;
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Section_ColorCircles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+/* -----> Footer <----- */
+footer {
+    margin-top: 16px;
+    padding: 4px;
+    /* background-color: lightgray; */
+}
+
+footer h3 {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    padding-left: 8px;
+}
