@@ -1,4 +1,3 @@
-/* From Uiverse.io by Yaya12085 */ 
 .githubBTN {
     display: flex;
     background-color: rgb(24, 23, 23);
@@ -18,6 +17,10 @@
     transition: .6s ease;
   }
   
+  .githubBTN a {
+    color: white;
+  }
+
   .githubBTN svg {
     height: 30px;
   }

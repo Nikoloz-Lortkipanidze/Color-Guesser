@@ -1,12 +1,14 @@
 * {
     padding: 0;
     margin: 0;
+    text-decoration: none;
 }
 
 body {
     background-color: lightgray;
 }
 
+/* -----> Header <----- */
 header {
     display: flex;
     align-content: center;
@@ -24,3 +26,32 @@ header h1 {
 .githubBTN {
     height: 40px;
 }
+
+/* -----> Scores, Timer, etc... <----- */
+.Section_Stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px;
+    background-color: lightblue;
+}
+
+.Section_Stats div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.Section_Stats h3 {
+    font-size: 24px;
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+}
+
+.Section_Stats h3:last-child {
+    cursor: pointer;
+}
+
