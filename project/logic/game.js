@@ -10,6 +10,7 @@ let restartBTN = document.querySelector('#restartBTN')
 // Other Dom Components
 let Dom_Score = document.querySelector('#Dom_Score') 
 let Dom_timer = document.querySelector('#Dom_timer') 
+let startWindowText = document.querySelector('#startWindowText')
 
 // Variables
 let circlesCount = 4;
@@ -20,15 +21,24 @@ let timer = 60;
 
 startGameBTN.addEventListener('click', function(){
     startWindow.style.display = 'none'
+    startWindowText.innerText = 
+    'Your game ended. Do you want to play the game again?'
     startGame()
 });
 
 function startGame(){
+    resetStats()
     startTimer()
     newLevel()
 }
 
 newLevel()
+
+function resetStats(){
+    score = 0;
+    timer = 60;
+    Dom_Score.innerHTML = `Score: ${score}`
+}
 
 function newLevel(){
     generateCircles()
@@ -40,8 +50,10 @@ function generateCircles(){
     /* Clear Circles Section */
     Section_Circles.innerHTML = ``
 
+    levelControl()
+
     /* Generate & Store Colors */
-    colors = generateRandomColors(4)
+    colors = generateRandomColors(circlesCount)
     color = getRandomElement(colors)
 
     /* Create Circles */
@@ -60,6 +72,7 @@ function setBackgroundColor(){
 
 function checkCircleColor(){ 
     if (startWindow.style.display == 'none'){
+
         if (timer > 0){
             if (this.style.backgroundColor == color){ // correct
                 correctCircle()
@@ -67,11 +80,24 @@ function checkCircleColor(){
                 wrongCircle()
             }
         } 
+
     }
 
     // update score
     Dom_Score.innerHTML = `Score: ${score}`
 
+}
+
+function levelControl(){
+    if (circlesCount != 12){ // set max circle count
+        if (score == 4){
+            circlesCount = 4
+        } else if (score % 5 == 0){
+            circlesCount = 4 + ( ( score / 5 ) * 2 )
+            Section_Circles.style.gridTemplateColumns =
+             `repeat(${circlesCount/2}, 1fr)`;
+        }
+}
 }
 
 function correctCircle(){
@@ -124,10 +150,6 @@ function startTimer() {
 
 function restartGame(){
     startWindow.style.display = 'block'
-
-    score = 0;
-    timer = 60;
-    Dom_Score.innerHTML = `Score: ${score}`
 
     newLevel()
 }
