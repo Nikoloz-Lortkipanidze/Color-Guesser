@@ -58,7 +58,7 @@ header h1 {
 /* -----> Guess The Color Section <----- */
 .Section_GuessTheColor {
     width: 100vw;
-    height: 20vh;
+    height: 25vh;
     /* height: 250px; */
     background-color: red;
     position: relative;
