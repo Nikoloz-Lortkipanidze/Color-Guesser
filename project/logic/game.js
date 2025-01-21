@@ -16,7 +16,7 @@ let circlesCount = 4;
 let colors;
 let color;
 let score = 0;
-let timer = 3;
+let timer = 60;
 
 startGameBTN.addEventListener('click', function(){
     startWindow.style.display = 'none'
@@ -62,10 +62,9 @@ function checkCircleColor(){
     if (startWindow.style.display == 'none'){
         if (timer > 0){
             if (this.style.backgroundColor == color){ // correct
-                score++
-                newLevel()
+                correctCircle()
             } else { // incorrect
-                score--
+                wrongCircle()
             }
         } 
     }
@@ -73,6 +72,32 @@ function checkCircleColor(){
     // update score
     Dom_Score.innerHTML = `Score: ${score}`
 
+}
+
+function correctCircle(){
+    // audio
+    const sound = new Audio('/Resources/Audio/Correct.mp3')
+    sound.currentTime = 0.1
+    sound.play()
+
+    score++
+
+    newLevel()
+}
+
+function wrongCircle(){
+    // audio
+    const sound = new Audio('/Resources/Audio/Wrong.mp3')
+    sound.currentTime = 1
+    sound.play()
+
+    // animation 
+    Section_GuessColor.style.border = '3px solid red'
+    setTimeout(() => {
+        Section_GuessColor.style.border = 'none'
+    }, 500);
+
+    score--
 }
 
 let timerInterval; // Declare globally
