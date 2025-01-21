@@ -88,16 +88,16 @@ function checkCircleColor(){
 
 }
 
-function levelControl(){
-    if (circlesCount != 12){ // set max circle count
+ function levelControl(){
+     if (circlesCount != 12){ // set max circle count
         if (score == 4){
-            circlesCount = 4
-        } else if (score % 5 == 0){
-            circlesCount = 4 + ( ( score / 5 ) * 2 )
-            Section_Circles.style.gridTemplateColumns =
+             circlesCount = 4
+         } else if (score % 5 == 0){
+             circlesCount = 4 + ( ( score / 5 ) * 2 )
+             Section_Circles.style.gridTemplateColumns =
              `repeat(${circlesCount/2}, 1fr)`;
         }
-}
+ }
 }
 
 function correctCircle(){
@@ -129,7 +129,7 @@ function wrongCircle(){
 let timerInterval; // Declare globally
 
 function startTimer() {
-
+    clearInterval(timerInterval)
     if (timer > 0) {
         timerInterval = setInterval(() => {
             if (timer > 10) {
@@ -149,6 +149,7 @@ function startTimer() {
 }
 
 function restartGame(){
+    clearInterval(timerInterval)
     startWindow.style.display = 'block'
 
     newLevel()
