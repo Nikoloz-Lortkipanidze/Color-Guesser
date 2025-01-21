@@ -16,11 +16,11 @@ let circlesCount = 4;
 let colors;
 let color;
 let score = 0;
-let timer = 60;
+let timer = 3;
 
 startGameBTN.addEventListener('click', function(){
     startWindow.style.display = 'none'
-    newLevel()
+    startGame()
 });
 
 function startGame(){
@@ -28,7 +28,7 @@ function startGame(){
     newLevel()
 }
 
-startGame()
+newLevel()
 
 function newLevel(){
     generateCircles()
@@ -59,11 +59,15 @@ function setBackgroundColor(){
 }
 
 function checkCircleColor(){ 
-    if (this.style.backgroundColor == color){ // correct
-        score++
-        newLevel()
-    } else { // incorrect
-        score--
+    if (startWindow.style.display == 'none'){
+        if (timer > 0){
+            if (this.style.backgroundColor == color){ // correct
+                score++
+                newLevel()
+            } else { // incorrect
+                score--
+            }
+        } 
     }
 
     // update score
@@ -77,22 +81,25 @@ function startTimer() {
 
     if (timer > 0) {
         timerInterval = setInterval(() => {
-            if (timer > 0) {
+            if (timer > 10) {
                 timer--;
-                Dom_timer.innerHTML = `Time: ${timer}`;
-            } else {
-                clearInterval(timerInterval); // Stop the interval when timer hits 0
+                Dom_timer.innerHTML = `Time: 00:${timer}`
+            }
+            else if (timer > 0){
+                timer--;
+                Dom_timer.innerHTML = `Time: 00:0${timer}`
+            }
+            else {
+                clearInterval(timerInterval) // Stop the interval when timer hits 0
+                restartGame()
             }
         }, 1000);
-    }
+    } 
 }
 
-
-
-
-
 function restartGame(){
-    // Update Score
+    startWindow.style.display = 'block'
+
     score = 0;
     timer = 60;
     Dom_Score.innerHTML = `Score: ${score}`
